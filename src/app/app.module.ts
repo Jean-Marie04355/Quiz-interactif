@@ -8,15 +8,13 @@ import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
 
 @NgModule({
-  declarations: [
+  imports: [
+    BrowserModule,
+    RouterModule.forRoot(routes),
     AppComponent,
     QuizComponent,
     QuestionComponent,
     ResultComponent
-  ],
-  imports: [
-    BrowserModule,
-    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
