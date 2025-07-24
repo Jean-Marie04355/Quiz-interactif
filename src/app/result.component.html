@@ -1,4 +1,26 @@
-<div>
-  <!-- Affichage du score final -->
-  <p>Votre score : </p>
+<div class="result-container">
+  <h2>Résultat du Quiz</h2>
+  <div class="score-circle">
+    <svg width="120" height="120">
+      <circle cx="60" cy="60" r="52" stroke="#e5e7eb" stroke-width="12" fill="none" />
+      <circle
+        cx="60" cy="60" r="52"
+        [attr.stroke]="getScoreColor()"
+        stroke-width="12"
+        fill="none"
+        stroke-linecap="round"
+        [attr.stroke-dasharray]="326"
+        [attr.stroke-dashoffset]="326 - (326 * percent / 100)"
+        style="transition: stroke-dashoffset 1s;"
+      />
+      <text x="60" y="68" text-anchor="middle" font-size="2.1rem" font-weight="bold" fill="#312e81">{{ percent }}%</text>
+    </svg>
+  </div>
+  <div class="score-detail">
+    <span>{{ score }} / {{ total }} bonnes réponses</span>
+  </div>
+  <div class="message">
+    {{ message }}
+  </div>
+  <button (click)="restart()">🔄 Recommencer le quiz</button>
 </div> 

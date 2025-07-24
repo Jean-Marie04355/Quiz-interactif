@@ -1,4 +1,27 @@
-<div>
-  <!-- Affichage d'une question -->
-  <p>Question ici</p>
+<div class="quiz-bg">
+  <div class="question-container animate-in">
+    <div class="question-illustration">
+      <img src="https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=400&q=80" alt="Quiz" />
+    </div>
+    <div class="question-header">
+      <span class="badge">Question {{ currentIndex + 1 }} / {{ totalQuestions }}</span>
+      <div class="progress-bar">
+        <div class="progress" [style.width.%]="((currentIndex + 1) / totalQuestions) * 100"></div>
+      </div>
+    </div>
+    <h2>{{ question.question }}</h2>
+    <div class="options-list">
+      <button *ngFor="let option of question.options; let i = index"
+              [class.selected]="selectedOption === i"
+              (click)="selectOption(i)">
+        {{ option }}
+      </button>
+    </div>
+    <div class="navigation-buttons">
+      <button (click)="previous()" [disabled]="currentIndex === 0">Précédent</button>
+      <button (click)="next()" [disabled]="selectedOption === null">
+        {{ quizService.isLastQuestion() ? 'Voir le résultat' : 'Suivant' }}
+      </button>
+    </div>
+  </div>
 </div> 

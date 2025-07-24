@@ -1,1 +1,57 @@
-/* Styles pour le composant résultat */ 
+.result-container {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(80, 80, 160, 0.10);
+  padding: 2.5rem 2rem;
+  max-width: 500px;
+  margin: 3rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.result-container h2 {
+  font-size: 2rem;
+  color: #312e81;
+  margin-bottom: 1.5rem;
+  font-weight: 800;
+}
+.score-circle {
+  margin-bottom: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: pop-in 0.7s cubic-bezier(.68,-0.55,.27,1.55);
+}
+@keyframes pop-in {
+  0% { transform: scale(0.7); opacity: 0; }
+  80% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); }
+}
+.score-detail {
+  font-size: 1.2rem;
+  color: #6366f1;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+}
+.message {
+  font-size: 1.2rem;
+  color: #4b5563;
+  margin-bottom: 2.2rem;
+  text-align: center;
+}
+.result-container button {
+  background: linear-gradient(90deg, #6366f1 0%, #a21caf 100%);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 0.9rem 2.2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(80, 80, 160, 0.10);
+  transition: background 0.2s, transform 0.2s;
+}
+.result-container button:hover {
+  background: linear-gradient(90deg, #a21caf 0%, #6366f1 100%);
+  transform: translateY(-2px) scale(1.04);
+} 
